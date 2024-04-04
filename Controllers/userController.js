@@ -57,7 +57,7 @@ export const requestPasswordReset = async (req, res) => {
         user.resetToken = resetToken;
         await user.save();
 
-        const resetLink = `http://localhost:4000/api/user/reset-password/${resetToken}`;
+        const resetLink = `https://urlshortner-frontend-bavi.netlify.app/reset-password/${resetToken}`;
         await mail(email, 'Password Reset Request', `Click this link to reset your password: ${resetLink}`);
 
         res.status(200).json({ message: "Check your mail for the reset link" });
@@ -79,7 +79,7 @@ export const redirectToResetPassword = async (req, res) => {
         }
 
         // Proceed with redirection
-        res.redirect(`http://localhost:5173/reset-password/${token}`);
+        res.redirect(`https://urlshortner-frontend-bavi.netlify.app/reset-password/${token}`);
     } catch (error) {
         console.error('Error occurred during redirection:', error);
         res.status(500).json({ error: 'Internal server error' });
