@@ -79,7 +79,7 @@ export const redirectToResetPassword = async (req, res) => {
         }
 
         // Proceed with redirection
-        res.redirect(`https://urlshortner-frontend-bavi.netlify.app/reset-password/${token}`);
+        res.redirect(`http://localhost:5173/reset-password/${token}`);
     } catch (error) {
         console.error('Error occurred during redirection:', error);
         res.status(500).json({ error: 'Internal server error' });
